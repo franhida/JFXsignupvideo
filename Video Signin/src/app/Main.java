@@ -10,7 +10,9 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    Stage stage;
+   private Stage stage;
+  
+   private AnchorPane anchorPane;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -20,12 +22,12 @@ public class Main extends Application {
 
     public void mainWindow(){
 
-        FXMLLoader loader=new FXMLLoader(getClass().getResource("sample.fxml"));
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("../src/view/signIn.fxml"));
         try {
-            AnchorPane pane=loader.load();
+            anchorPane = (AnchorPane) loader.load();
 
-            Scene scene=new Scene(pane);
-            scene.getStylesheets().addAll(Main.class.getResource("style.css").toExternalForm());
+            Scene scene=new Scene(anchorPane);
+            scene.getStylesheets().addAll(getClass().getResource("style.css").toExternalForm());
             stage.setScene(scene);
             stage.show();
 
